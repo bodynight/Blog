@@ -8,6 +8,20 @@
 </p>
 <hr/>
 <h4>Коментарии:</h4>
+<br />
+
+<% @coments.each do |coment| %>
+	
+	<p>
+		<%= coment['content'] %>
+		<br />
+		<span style="font-size: 75%; color: grey">Добавлен в: <%= coment['created_date'] %></span>
+	</p>
+
+	<hr/>
+
+<% end %>
+
 <p>
 <form action="/details/<%= @row['id'] %>" method="POST">
 
