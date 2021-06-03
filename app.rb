@@ -45,3 +45,12 @@ post '/new' do
 
  	redirect to '/'
 end
+
+get '/details/:id' do
+	id = params[:id]
+
+	results = @db.execute 'select * from Posts where id=?', [id]
+	@row = results[0]
+
+	erb :details
+end
