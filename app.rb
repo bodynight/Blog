@@ -16,6 +16,13 @@ configure do
 	`created_date`	DATA,
 	`content`	TEXT
    )'
+
+   @db.execute 'CREATE TABLE if not exists `Coments` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`created_date`	DATA,
+	`content`	TEXT,
+	post_id INTEGER
+   )'
 end
 
 before do
@@ -54,3 +61,11 @@ get '/details/:id' do
 
 	erb :details
 end
+
+post '/details/:id' do
+	id = params[:id]
+	@coment = params[:coment]
+	erb "coment: #{@coment} for #{id}"
+
+end
+

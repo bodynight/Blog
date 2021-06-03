@@ -1,0 +1,22 @@
+<h4>Детали поста</h4>
+<hr/>
+<p>
+	<%= @row['content'] %>
+	<br/>
+	<br/>
+	Добавлен в: <%= @row['created_date'] %>
+</p>
+<hr/>
+<h4>Коментарии:</h4>
+<p>
+<form action="/details/<%= @row['id'] %>" method="POST">
+
+  <div class="form-group">
+
+    <textarea class="form-control" name="coment" id="exampleFormControlTextarea1" rows="6" placeholder="Введите здесь текс коментария" ></textarea>
+
+  </div>
+
+  <button type="submit" class="btn btn-primary">Добавить коментарий</button>
+</form>
+</p>
